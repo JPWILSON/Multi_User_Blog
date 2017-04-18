@@ -1,5 +1,16 @@
-# Udacity Multi User Blog Project
+# Multi User Blog
 by Jean-Paul Wilson
+
+A basic web application that allows users to
+* sign in 
+* write blog posts
+* edit blog posts
+* like other people's blog posts
+* comment on other people's blog posts
+
+The backend is hosted on Google App Engine.
+
+Its not a pretty web app. But then again, it doesn't need to be.
 
 Locate and interact with my application at the following url: 
 http://maps-api-148116.appspot.com/
