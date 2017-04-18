@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <div class="post_footer">
+        Commentor: {{ c.commentauthor }}
+    </div>
+    <h2>Edit Comment:</h2>
+    <div class = "row">
+        <div class = "col-md-1"></div>
+        <div class = "col-md-10">
+            <form method="post">
+                <label>
+                    <textarea name="comment" class="content2" value="{{comment}}">{{comment}}</textarea>
+                </label>
+                <div class="error">{{error}}</div>
+                <input type="submit" value="Comment!">
+            </form>
+        </div>
+        <div class = "col-md-1"></div>
+    </div>
+
+    <div class= "row">
+        <div class = "col-md-4"></div>
+        <div class = "col-md-4">
+                <button onclick="location.href='/blog/{{post.key().id()}}'">Cancel Edit</button>
+        </div>
+        <div class = "col-md-4"></div>
+    </div>
+
+
+{% endblock %}

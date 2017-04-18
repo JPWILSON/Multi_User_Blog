@@ -1,0 +1,93 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class = "row">
+	<div class="col-md-12">
+			<!--<a href="/blog/{{post.key().id()}}">
+				<h3 class = "text-muted text-center">{{post.subject}}</h3>
+			</a>-->
+	</div>
+</div>
+
+<div class = "row text-center">{% if username != "Guest"%}
+				<div class = "col-md-3">
+					<button onclick="location.href='/blog/{{post.key().id()}}/edit'">Edit Post</button>
+				</div>
+				<div class = "col-md-3">
+					<button onclick="location.href='/blog/{{post.key().id()}}/delete'">Delete Post</button>
+				</div>
+
+
+				<div class = "col-md-3">
+					<form action='/blog/{{post.key().id()}}/like' method="post">
+                        <input type="submit" value="Likes {{post.likes}}">
+                    </form>
+					<!--<button onclick="location.href='/blog/like/{{post.key().id()}}'">Like{{post.likes}}</button>-->
+				</div>
+
+
+				<div class = "col-md-3">
+					<!---<button onclick="location.href='/form'">Comment</button>-->
+					<form action="/blog/{{post.key().id()}}/comment" method="get">
+                    	<input type="submit" value="Comment on Post">
+                	</form>
+				</div><br>
+
+
+				{% else %}
+				<div class = "col-md-12 text-center">
+					<button onclick="location.href='/signup'">Login to Like/ Comment</button>
+				</div>
+				{% endif %}
+</div>
+<hr>
+
+<div class = "row">
+	<div class = "col-md-3"></div>
+	<div class = "col-md-6 ">
+		<ul class = "text-center">
+
+				<div class= "text-center">
+					{{ post.render() | safe }}<br><br>
+				</div>{{error}}
+
+			
+		</ul>
+	</div>
+	<div class = "col-md-3"></div>
+</div>
+
+<div class = "row">
+	<div class = "col-md-3"></div>
+	<div class = "col-md-6 ">
+		<h2>Comments:</h2>
+		<ul class = "text-center ">
+			{% for c in comments %}
+				<div class= "text-center comment_border">
+					<h4>Comment by: {{ c.commentauthor }} on {{c.created.strftime("%b %d, %Y")}}</h4>
+					<p>{{c.comment}}</p><br>
+					{% if username == c.commentauthor %}
+					<div class = "row ">
+						<div class = "col-md-6">
+							<form action="/blog/{{post.key().id()}}/comment/{{c.key().id()}}/edit" method="get">
+	                    	<input type="submit" value="Edit Comment">
+	                	</form><br>
+						</div>
+						<div class = "col-md-6">
+							<form action="/blog/{{post.key().id()}}/comment/{{c.key().id()}}/delete" method="get">
+	                    	<input type="submit" value="Delete Comment">
+	                	</form>
+						</div><hr>
+					</div>
+						
+	                {% endif %}
+				</div><br>
+			{% endfor %}
+			
+		</ul>
+	</div>
+	<div class = "col-md-3"></div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block content %}
+    {{ p.render() | safe }}
+    <hr>
+    <h2>Your Comment:</h2>
+    <div class = "row">
+        <div class = "col-md-1"></div>
+        <div class = "col-md-10">
+            <form method="post">
+                <label>
+                    <textarea name="comment" class="content2" value="{{comment}}">{{comment_prev}}</textarea>
+                </label>
+                <div class="error">{{error}}</div>
+                <input type="submit" value="Comment!">
+            </form>
+        </div>
+        <div class = "col-md-1"></div>
+    </div>
+
+    <div class= "row">
+        <div class = "col-md-4"></div>
+        <div class = "col-md-4">
+                <button onclick="location.href='/blog/{{p.key().id()}}'">Cancel Comment</button>
+        </div>
+        <div class = "col-md-4"></div>
+    </div>
+{% endblock %}

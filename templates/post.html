@@ -1,0 +1,20 @@
+<div class="post">
+  <div class="post-heading">
+    <div class="post-title">
+      <a href="/blog/{{p.key().id()}}">
+        <h3 class = "text-muted text-center">{{p.subject}}</h3>
+      </a>
+    </div>
+
+    <div class="post-date">
+      <b>Posted by {{p.author}}, on {{p.timestamp.strftime("%b %d, %Y")}}</b>
+    </div>
+  </div>
+
+  <div class="post-content">
+    {{p._render_text | safe}}
+  </div>
+  <div class = "row">
+    
+  </div>
+</div>

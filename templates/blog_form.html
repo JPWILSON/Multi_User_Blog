@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block content %}
+<!--<link rel="stylesheet" type="text/css" href="/static/styles/styles.css" media= "screen and (max-width:361px)">-->
+<div class = "row">
+	<div class = "col-md-2 red"></div>
+	<div class = "col-md-8 blue">
+		<form class = "text-center borders" method = "post">
+			<h2>Make a blog entry</h2>
+			<label class = "blog-form">
+				Subject: <br>
+				<input class = "subject" name="subject" value = "{{subject}}">
+			</label><br><br>
+			<label class = "blog-form">
+				Content: <br>
+				<textarea class = "content" name="content">{{content}}</textarea>
+			</label><br>
+			<input type = "submit" value="Publish">
+		</form><br><!-- END FORM -->
+		<button onclick="location.href='/home'">Cancel Blog Entry</button>
+		<div class = "row error text-center">{{error}}</div><br>
+	</div>
+	<div class = "col-md-2 red"></div>
+</div>
+
+
+{% endblock %}

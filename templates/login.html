@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class = "row">
+	<div class = "col-md-1 red"></div>
+	<div class = "col-md-10 blue">
+		
+		<form method = "post">
+			<h2>User Login</h2>
+			<table class="table">
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="table_name">Username:</td>
+					<td><input class="table_input" type = "text" name="username" value = "{{username}}"></td>
+					<td class="error">{{error}}</td>
+				</tr>
+				<tr>
+					<td class="table_name">Password: </td>
+					<td><input class="table_input" type = "password" name="password" value = ""></td>
+					<!--<td class="error">{{password_error}}</td> This is not necessary on this page...-->
+				</tr>
+
+			</tbody>
+			</table><br>
+			<input type= "submit" value = "Login!">
+		</form><br>
+		<div class = "row">
+			<span>Not yet registered? </span>&nbsp 
+			<button onclick="location.href='/signup'">Signup</button>
+		</div>
+
+	</div>
+	<div class = "col-md-1 red"></div>
+</div>
+
+
+
+
+
+{% endblock %}

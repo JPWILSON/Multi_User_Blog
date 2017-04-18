@@ -1,0 +1,73 @@
+/* General order for these classes: 
+i. Body classes 
+ii. General classes 
+iii. More specific classes */
+/*.borders{
+	border: solid red 1px;
+}*/
+
+.comment_border{
+	border: solid grey 0.25px;
+}
+.commentbox{
+	border: solid grey 0.5px;
+}
+body{
+	font-family: 'Lato', sans-serif;
+	color: #747704;
+	font-weight: 300;
+}
+
+hr{
+	border: none;
+	height: 3px;
+	background-color: #BCBBBB;
+}
+.title-super{
+	font-size: 60px;
+}
+.title-logo{
+	margin-top: 15px;
+}
+
+.text-muted{
+	color:#BCBBBB;
+}
+
+.text-thin{
+	font-weight: 100;
+}
+
+.error{
+	color: red;
+}
+
+.table_name{
+	width: 150px;
+}
+
+.table_input{
+	width: 300px;
+}
+
+.blog-form{
+	width: 100%;
+}
+.subject{
+	width: 80%;
+}
+
+.content{
+	width: 80%;
+	height: 300px;
+}
+.content2{
+	width: 450px;
+	height: 300px;
+}
+
+.thin{
+	border: none;
+	height: 0.5px;
+	background-color: #242526;
+}

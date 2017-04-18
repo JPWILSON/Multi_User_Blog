@@ -1,0 +1,74 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class = "row">
+	<div class="col-md-12">
+		<h2 class = "text-muted text-center"><a href="/">Recent Blog Entries</a></h2>
+	</div>
+</div>
+
+<div class = "row text-center">
+
+				<div class = "col-md-4">
+						{% if username == "Guest" %}
+					<button onclick="location.href='/signup'">Sign Up/In</button>
+						{% endif %}
+				</div>
+				<div class = "col-md-4">
+						{% if username != "Guest" %}
+					<button onclick="location.href='/form'">Make Blog Entry</button>
+						{% endif %}
+				</div>
+				<div class = "col-md-4">
+						{% if username != "Guest" %}
+					<button onclick="location.href='/logout'">Logout</button>
+						{% endif %}
+				</div><br>
+	
+</div>
+
+
+<div class = "row">
+	<div class = "col-md-2"></div>
+	<div class = "col-md-8 ">
+		<ul class = "text-center">
+				{% for p in posts %}
+				<hr>
+				<div class= "text-center">
+					{{ p.render() | safe }}<br><br>
+				</div>			
+		</ul>
+	</div>
+	<div class = "col-md-2"></div>
+</div>
+
+<div class = "row">	
+	<div class = "col-md-3"></div>
+	<div class = "col-md-6">
+		<div class="post_comment">
+                {% for c in comments %}
+                    <!--{% if c.commentid == p.key().id() %}-->
+                        <div class="comment">
+						<div class = "commentbox">Comment: 	{{ c.comment | safe }}</div>
+                            <span class="comment_sign">
+                                Comment made on {{ c.created.strftime("%a %b %d, %Y") }}
+                            </span>
+                            <br><br>
+                            {% if c.commentauthor == user.name %}
+                                <form action="/blog/edit/{{c.key().id()}}" method="get">
+                                    <input type="submit" value="Edit">
+                                </form>
+                            {% endif %}
+                            <br><br>
+                        </div>
+                    <!--{% endif %}-->
+                {% endfor %}
+            </div>{% endfor %}<!--  This for is from like 35-->
+	</div>
+	<div class = "col-md-3"></div>
+</div>
+	
+
+
+
+{% endblock %}
